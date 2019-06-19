@@ -8,7 +8,7 @@ def deployService(serviceName,serviceVersion) {
   node {
     echo "calling build ${serviceName}"
     stage(serviceName) {
-        sh " /usr/bin/oc start-build ${serviceName}-pipeline -F -n jenkins1 --env=IMAGE_TAG=${serviceVersion}"
+        sh " /usr/bin/oc start-build ${serviceName}-pipeline -F --env=IMAGE_TAG=${serviceVersion}"
     }
      echo "called build ${serviceName}"
   }
